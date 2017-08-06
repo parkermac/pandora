@@ -11,5 +11,5 @@ set(0,'defaultaxesfontsize',fs1);
 set(0,'defaulttextfontsize',fs1);
 set(0,'defaultaxesfontweight','bold');
 set(0,'defaulttextfontweight','bold');
-set(0,'defaultaxesfontname','Ariel');
+%set(0,'defaultaxesfontname','Helvetica');
 

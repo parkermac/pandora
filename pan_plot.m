@@ -56,7 +56,7 @@ plot_file = strrep(fn_p,'.m',''); % used in an "eval" call below
 
 % default initialization of plot properties
 Z_fig(10); figure;
-set(gcf,'position',[100 100 1000 600]);
+set(gcf,'position',[100 100 1000.5 600]);
 
 % determine how many files to plot
 if make_movie; ntt = size(fn,2); else; ntt = 1; end;
@@ -86,7 +86,7 @@ for ii = 1:ntt % MOVIE loop start (or just make single plot)
                 load([pth_m,fn_m]); % gets mod_moor structure
                 % reset figure size
                 Z_fig(12);
-                set(gcf,'position',[50 50 1300 700]);
+                set(gcf,'position',[50 50 1310 700]);
             end;
             eval([plot_file,'(Tdir,infile,basename,tt,riv,mod_moor);']);
         otherwise
@@ -110,8 +110,9 @@ for ii = 1:ntt % MOVIE loop start (or just make single plot)
         if plotit
             set(gcf,'PaperPositionMode','auto');
             outname = [Tdir.pan_fig,plot_file,'_',basename, ...
-                time_flag,'_',num2str(tt),'.jpg'];
-            print('-djpeg100',outname);
+                time_flag,'_',num2str(tt),'.png'];
+            %print('-djpeg100',outname);
+            print('-dpng',outname);
             disp(['Saving to ',outname]);
         end
     else % make a folder of jpegs for a movie
@@ -121,7 +122,7 @@ for ii = 1:ntt % MOVIE loop start (or just make single plot)
             mkdir(outdir);
         end
         set(gcf,'PaperPositionMode','auto');
-        print('-djpeg100',[outdir,'/',num2str(tt),'.jpg']);
+        print('-dpng',[outdir,'/',num2str(tt),'.png']);
         if ii<length(fn); clf; end;
     end
     

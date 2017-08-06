@@ -1,6 +1,11 @@
 function [xt,yt] = Z_lab(poschar)
 % 3/2/2011 Parker MacCready
 %
+% 
+% Usage:
+%
+% [xt,yt] = Z_lab(poschar);
+%
 % Returns the position for a text label
 %
 % Say you have a plot up, and "aa = axis"
